@@ -38,7 +38,7 @@ const ThreadsIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/zyncwebsolutions', icon: Linkedin },
   { label: 'Instagram', href: 'https://www.instagram.com/zyncwebsolutions/', icon: Instagram },
-  { label: 'Facebook', href: '', icon: Facebook },
+  { label: 'Facebook', href: 'https://www.facebook.com/share/1CT5qCd7rS/', icon: Facebook },
   { label: 'Pinterest', href: 'https://in.pinterest.com/Zyncweb/', icon: PinterestIcon },
   { label: 'Threads', href: 'https://www.threads.com/@zyncwebsolutions', icon: ThreadsIcon },
 ].filter((link) => Boolean(link.href));
