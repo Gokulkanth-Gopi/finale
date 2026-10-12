@@ -1,0 +1,98 @@
+@import "tailwindcss";
+/* tailwind-custom-variant */
+@variant dark (&:where(.dark, .dark *));
+@import "tw-animate-css";
+
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: #3fbfb8;
+    color: white;
+  }
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.25);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0.4;
+  }
+}
+
+.anime-dot {
+  animation: pulseDot 1.8s ease-in-out infinite alternate;
+}
+
+
+
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --max-width: 1200px;
+  --radius-md: 12px;
+}
+
+/* Modern base typography and spacing */
+@layer base {
+  html, body {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ffffff;
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+  }
+
+  p { margin-bottom: var(--space-4); color: rgba(15,23,42,0.85); }
+
+  /* Container for consistent horizontal spacing */
+  .container {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  /* Section helper to space vertical rhythm */
+  .section { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+
+  /* Modern button reset */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary { background: linear-gradient(90deg,#0ea5a4,#3fbfb8); color: white; }
+  .btn-ghost { background: transparent; border: 1px solid rgba(15,23,42,0.06); color: #0f172a; }
+}
