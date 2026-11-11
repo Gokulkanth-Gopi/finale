@@ -9,4 +9,5 @@ coverage/
 .next.zip
 *.tsbuildinfo
 .vscode/
+.playwright-mcp/
 
