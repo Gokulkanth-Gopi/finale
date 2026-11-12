@@ -181,6 +181,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <head>
+        {/* Google Tag (gtag.js) - GTM-TCWBD8PS */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-TCWBD8PS"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
         <Script
           id="schema-local-business"
           type="application/ld+json"
