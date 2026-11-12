@@ -17,14 +17,14 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-display',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://zyncwebsolutions.com';
+const GTM_ID = 'GTM-WSZZ9QXB';
+const siteUrl = 'https://zyncweb.dev';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: 'ZyncWeb Solutions | Web Design & Development Agency in Salem, Tamil Nadu',
     template: '%s | ZyncWeb Solutions — Salem, Tamil Nadu',
-    
   },
   description:
     'ZyncWeb Solutions is a premier web design and development agency based in Salem, Tamil Nadu, India. We build high-performance websites, apps, and digital products for businesses in Salem, Coimbatore, Chennai, and worldwide.',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
       'Top-rated web design and development agency in Salem, Tamil Nadu. We craft high-performance digital experiences for local businesses and global brands.',
     images: [
       {
-        url: '/assets/MainlogoDP.png',
+        url: `${siteUrl}/assets/MainlogoDP.png`,
         width: 1200,
         height: 630,
         alt: 'ZyncWeb Solutions — Web Agency in Salem, Tamil Nadu',
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     title: 'ZyncWeb Solutions | Web Agency in Salem, Tamil Nadu',
     description:
       'Web design & development agency based in Salem, Tamil Nadu. Serving local businesses and global clients.',
-    images: ['/assets/MainlogoDP.png'],
+    images: [`${siteUrl}/assets/MainlogoDP.png`],
     creator: '@zyncweb',
   },
   icons: {
@@ -181,19 +181,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <head>
-        {/* Google Tag (gtag.js) - GTM-TCWBD8PS */}
+        {/* Google Tag Manager */}
         <Script
-          async
-          src="https://www.googletagmanager.com/gtm.js?id=GTM-TCWBD8PS"
+          id="google-tag-manager"
           strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
         />
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          `}
-        </Script>
+
         <Script
           id="schema-local-business"
           type="application/ld+json"
@@ -208,6 +208,15 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white dark:bg-gray-950 text-gray-900 dark:text-white antialiased selection:bg-blue-500/30 transition-colors duration-300" suppressHydrationWarning>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <ThemeProvider>
           <Navbar />
           <main className="min-h-screen">{children}</main>
