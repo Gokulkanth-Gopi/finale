@@ -13,6 +13,7 @@
   "dependencies": {
     "@google/genai": "^1.17.0",
     "@hookform/resolvers": "^5.2.1",
+    "@next/third-parties": "^15.5.29",
     "@tailwindcss/postcss": "4.1.11",
     "@tailwindcss/typography": "^0.5.4",
     "@types/animejs": "^3.1.13",
